@@ -20,6 +20,8 @@
     "linebreak-style": "off",
     "global-require": "off",
     "semi": "warn",
-    "arrow-body-style": "off"
+    "arrow-body-style": "off",
+    "jsx-a11y/label-has-associated-control": "off",
+    "jsx-a11y/label-has-for": "off"
   }
 }

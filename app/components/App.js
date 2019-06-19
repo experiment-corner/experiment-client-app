@@ -1,5 +1,6 @@
 import React from 'react';
 import img from '../assets/images/react_logo_512x512.png';
+import Login from './login';
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         src={img}
         alt="React Logo"
       />
+      <Login />
     </div>
   );
 };

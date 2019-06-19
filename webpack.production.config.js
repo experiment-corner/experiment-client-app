@@ -33,7 +33,7 @@ const config = {
       debug: false,
     }),
     new webpack.optimize.UglifyJsPlugin({
-      beautify: false
+      beautify: false,
     }),
     new webpack.DefinePlugin({ 'process.env': { NODE_ENV: JSON.stringify('production') } }),
     new ExtractTextPlugin({ filename: './styles/style.css', disable: false, allChunks: true }),
@@ -60,8 +60,16 @@ const config = {
             'css-loader',
             { loader: 'sass-loader', query: { sourceMap: false } },
           ],
-          publicPath: '../'
+          publicPath: '../',
         }),
+      },
+      {
+        test: /\.ico$/,
+        use: [
+          {
+            loader: 'file-loader?name=[name].[ext]',
+          },
+        ],
       },
       {
         test: /\.(png|jpg|gif)$/,
@@ -72,8 +80,8 @@ const config = {
               limit: 8192,
               mimetype: 'image/png',
               name: 'images/[name].[ext]',
-            }
-          }
+            },
+          },
         ],
       },
       {
@@ -82,9 +90,9 @@ const config = {
           {
             loader: 'file-loader',
             options: {
-              name: 'fonts/[name].[ext]'
-            }
-          }
+              name: 'fonts/[name].[ext]',
+            },
+          },
         ],
       },
       {
@@ -96,8 +104,8 @@ const config = {
               limit: 8192,
               mimetype: 'application/font-woff',
               name: 'fonts/[name].[ext]',
-            }
-          }
+            },
+          },
         ],
       },
       {
@@ -109,8 +117,8 @@ const config = {
               limit: 8192,
               mimetype: 'application/octet-stream',
               name: 'fonts/[name].[ext]',
-            }
-          }
+            },
+          },
         ],
       },
       {
@@ -122,11 +130,11 @@ const config = {
               limit: 8192,
               mimetype: 'image/svg+xml',
               name: 'images/[name].[ext]',
-            }
-          }
+            },
+          },
         ],
       },
-    ]
+    ],
   },
 };
 
