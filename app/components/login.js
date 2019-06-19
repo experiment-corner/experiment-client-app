@@ -1,3 +1,5 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
+import 'babel-polyfill';
 import React, { Component } from 'react';
 import '../assets/scss/login.scss';
 
