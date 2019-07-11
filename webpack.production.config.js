@@ -5,7 +5,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const config = {
-  devtool: 'cheap-module-source-map',
+  devtool: 'source-map',
 
   entry: [
     './main.js',

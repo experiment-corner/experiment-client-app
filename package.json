@@ -36,10 +36,16 @@
   },
   "dependencies": {
     "cross-env": "5.1.4",
-    "react": "16.2.0",
-    "react-dom": "16.2.0",
+    "isomorphic-fetch": "^2.2.1",
+    "react": "^16.4.2",
+    "react-dom": "^16.8.6",
     "react-hot-loader": "4.0.0",
-    "react-router-dom": "4.2.2"
+    "react-redux": "^6.0.1",
+    "react-router-dom": "^4.4.0-beta.8",
+    "react-router-redux": "^4.0.8",
+    "redux": "^4.0.4",
+    "redux-persist": "^5.10.0",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "babel-cli": "6.26.0",
@@ -73,6 +79,7 @@
     "open-browser-webpack-plugin": "0.0.5",
     "react-addons-test-utils": "15.6.2",
     "react-test-renderer": "16.2.0",
+    "redux-devtools": "^3.5.0",
     "rimraf": "2.6.2",
     "sass-loader": "6.0.7",
     "style-loader": "0.20.0",

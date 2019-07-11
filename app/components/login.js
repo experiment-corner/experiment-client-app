@@ -1,6 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import 'babel-polyfill';
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import '../assets/scss/login.scss';
 
 class Login extends Component {
@@ -16,7 +17,8 @@ class Login extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch('http://localhost:1234/login', {
+    //  const response = await
+    fetch('http://localhost:1234/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -25,9 +27,11 @@ class Login extends Component {
         email: this.state.email,
         password: this.state.password,
       }),
+    }).then((response) => {
+      response.text().then((body) => {
+        this.setState({ responseToPost: body });
+      });
     });
-    const body = await response.text();
-    this.setState({ responseToPost: body });
   };
 
   validateForm() {
@@ -57,4 +61,13 @@ class Login extends Component {
   }
 }
 
-export default Login;
+const mapDispatchToProps = {
+
+};
+
+const mapStateToProps = state => ({
+  isAuthenticated: state.session.isAuthenticated,
+
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
