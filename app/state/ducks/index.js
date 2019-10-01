@@ -1,2 +1,3 @@
-// export { default as session } from './session';
-export default './session';
+// eslint-disable-next-line import/prefer-default-export
+export { default as session } from './session';
+

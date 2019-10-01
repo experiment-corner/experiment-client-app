@@ -1,25 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { AppContainer } from 'react-hot-loader';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { persistStore } from 'redux-persist';
+import { PersistGate } from 'redux-persist/integration/react';
 
-import Root from './config/root';
+import App from '../app/components/app';
+import configureStore from '../app/state/store';
 
-require('../app/assets/images/favicon.ico');
+const reduxStore = configureStore();
 
-const render = (Component) => {
-  ReactDOM.render(
-    <AppContainer>
-      <Component />
-    </AppContainer>,
-    document.getElementById('root'),
-  );
-};
+const persistor = persistStore(reduxStore);
+// console.log( "persistor", persistor );
 
-render(Root);
+window.persistor = persistor;
+const app = document.getElementById('root');
+const jsx = (
+  <Provider store={reduxStore}>
+    <PersistGate loading={null} persistor={persistor} >
+      <Router>
+        <App />
+      </Router>
+    </PersistGate>
+  </Provider>
+);
 
-if (module.hot) {
-  module.hot.accept('./config/root', () => {
-    const newApp = require('./config/root').default;
-    render(newApp);
-  });
-}
+ReactDOM.render(jsx, app);
